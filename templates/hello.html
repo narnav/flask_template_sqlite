@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %}Index{% endblock %} {% block head
+%} {{ super() }}
+<style type="text/css">
+  .important {
+    color: #336699;
+  }
+</style>
+{% endblock %} {% block content %}
+<h1>Index</h1>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {% for i in context.movies %}
+  <div class="col">
+    <div class="card">
+      <img
+        src="https://picsum.photos/20{{loop.index}} "
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Year {{i[1]}}</h5>
+        <p class="card-text">{{i[0]}}</p>
+      </div>
+      <button class="btn btn-primary">Order {{i[2]}}</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<p class="important">Welcome to my awesome homepage. {% endblock %}</p>
